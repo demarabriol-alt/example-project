@@ -18,6 +18,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::create($validated);
+        $user->assignRole('user');
 
         $token = $user->createToken('api-token')->plainTextToken;
 
